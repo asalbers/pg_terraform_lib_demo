@@ -32,7 +32,7 @@ pipeline {
             stage('Running terraform plan'){
                 steps {
                     script {
-                        terraformTest.tfplank8s()
+                        terraformTest.tfplan()
                     }
                 }
             }
@@ -44,14 +44,14 @@ pipeline {
             stage('Deploy') {
                 steps {
                     script{
-                        deployTerraform.tfapplyk8s()
+                        deployTerraform.tfapply()
                     }
                 }
             }
             stage('destroy'){
                 steps {
                     script{
-                        deployTerraform.tfdestroyk8s()
+                        deployTerraform.tfdestroy()
                     }
                 }
             }
